@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+{{template "headmeta.tmpl" .}}
+
+    <title>Support : Xenonstack</title>
+  </head>
+  <body>
+
+{{template "header.tmpl" .}}
+
+    <div class="docs-details">
+                <div class="layout-wrapper">
+                  <div class="docs-left">
+                    <ul class="page-bradcrums">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="{{.names.Slug}}">{{.names.Title}}</a></li>
+                    </ul>
+                    <div class="docs-content">
+                      <div class="docs-header">
+
+                        <h2><img src="/static/default/images/docs.png" alt="docs"/> {{.names.Title}} <p>Modified on {{.names.DateSubmitted.Format "January 02, 2006"}} </p> </h2>
+                          
+                          <ul class="doc-tags">
+                          {{range $subCategoryIndex, $subCategory := .subcategories}}{{if ne $subCategoryIndex 0}}, {{end}}
+                          <li> <a href="/articles/tag/{{$subCategory.Slug}}">{{$subCategory.Name}}</a> </li>
+                          {{else}}
+                          {{end}}
+                          </ul>
+                        </div>
+
+                        {{call .htmlEscape .names.Body}}
+                         
+                    </div>
+                    </div>
+                    
+                    <div class="docs-right">
+                      <h4 class="sidebar-title">Related Article </h4>
+                      <div class="sidebar-item">
+                        <ul class="releted-post">
+                                  {{$nam2 := .names}}
+                                {{range $i,$nam := .related}}
+                                
+                                {{if ne $nam.Title $nam2.Title}}
+                          <li >
+                           <a href="/article/{{$nam.Slug}}"><i class="material-icons">description</i>{{$nam.Title}} </a>
+                          </li>
+                                {{end}}
+                                {{end}}
+                        </ul>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+  </div>
+
+{{template "footer.tmpl" .}}
+
+  </body>
+</html>

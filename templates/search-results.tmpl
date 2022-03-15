@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+{{template "headmeta.tmpl" .}}
+
+    <title>Support : Xenonstack</title>
+  </head>
+  <body>
+
+{{template "header.tmpl" .}}
+
+    <div class="docs-details">
+                <div class="layout-wrapper">
+                  <div class="article-listing-outer">
+                    <section class="article-section search-results">
+                    <div class="page-heading-outer">
+                      <h2>Search results for <strong>"{{.query}}"</strong> </h2>
+                    </div>
+                    <ul class="article-post-list">
+                      
+                      
+                             {{range $_,$nam := .posts}}
+                      <li>
+                      <div class="article-item" >
+                       <a href="/article/{{$nam.Slug}}">
+                          <i class="material-icons">description</i>
+                                {{$nam.Title }}
+                         <span class="article-date">Modified {{$nam.DateSubmitted.Format "January 02, 2006"}} </span>
+                       </a>
+                       <p>{{$nam.Description}}</p>
+                       </div>
+                      </li>
+                       
+                            {{else}}  
+                       
+                    <li class="no-data-found">   
+                      <div class="article-item" >
+                        <p> Your search did not match any documents </p>
+                      </div>
+                    </li>                            
+                            
+                            {{end}}
+
+
+                
+
+                    </ul>
+                    </section>
+                  </div>
+                </div>
+              </div>
+  </div>
+
+  {{template "footer.tmpl" .}}
+ 
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+{{template "headmeta.tmpl" .}}
+
+    <title>Support : Xenonstack</title>
+  </head>
+  <body>
+
+{{template "header.tmpl" .}}
+
+    <div class="category-list">
+          <div class="layout-wrapper">
+            <div class="layout-mdc-grid">              
+            <div class="layout-mdc-item">
+              <a href="/article" class="support-category-block">
+                 <i class="material-icons">book</i>
+                 <div class="category-content">
+                   <h4>Documentation</h4>
+                   <h5>{{.count}} Articles</h5>
+                 </div>
+              </a>
+            </div>
+          </div>
+          </div>
+      </div>
+       <section class="page-section">
+              <div class="page-container">
+                <div class="layout-wrapper">
+                    <div class="page-heading-outer">
+                      <h2>Browse by Tags</h2>
+                    </div>
+                    <div class="tags-outer">
+                      <ul class="tags-list">
+                                {{range $i,$nam := .data}}
+                      <li><a href="/articles/tag/{{$i}}">{{$nam}}</a></li>
+                                {{end}}
+                      </ul>
+                  </div>
+              </div>
+          </section>
+
+  </div>
+
+{{template "footer.tmpl" .}}
+
+  </body>
+</html>

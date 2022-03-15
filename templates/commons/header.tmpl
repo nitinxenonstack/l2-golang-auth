@@ -1,0 +1,44 @@
+    <header class="mdc-toolbar mdc-toolbar-header" >
+      <div class="layout-wrapper">
+        <div class="mdc-toolbar__row">
+          <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+              <a href="/" class="mdc-toolbar__title app-logo"><img src="/static/default/images/Xenonstack.png" alt="Xenonstack Support" /></a>
+          </section>
+          <section class="mdc-toolbar__section mdc-toolbar__section--align-end">
+              <a href="/" id="homepage" class="head-links active"> Home </a>             
+              <a href="/article" id="artclelist" class="head-links"> Documentation </a>     
+              <a href= {{.portal}} target="_blank" class="head-links"> Portal  </a>     
+              <p class="head-links user-name"><span class="fa fa-user"></span>{{.username}}</p>
+              <a href={{.logout}} class="login-signup">Log Out</a>    
+          </section>
+        </div>
+      </div>
+    </header>
+  <div class="page-wrapper">
+    <div class="banner-wrapper">
+        <div class="mdl-aligner">
+        <div class="layout-wrapper">
+          <div class="banner-content">
+            <h1>Welcome to Xenonstack Documentation  Portal</h1>
+            <p>Get help with Xenonstack Solutions,Services and Technologies. Discover ways to use Xenonstack. We are here to help! </p>
+              <div class="search-bar" id="search-bar">
+                 <div class="search-input-box">		
+                    <form action="/search" method="POST">
+                    <input required="" oninvalid="this.setCustomValidity('Please enter Search Text')" oninput="setCustomValidity('')" type="text" name="search" placeholder="Get help for our solutions, services & technologies."/>
+                    <button type="submit" class="search-btn"><i class="material-icons">search</i></button>
+                    </form> 
+                 </div>
+              </div>
+              </div>
+          </div>
+        </div>
+    </div>
+<script>
+if(document.location.pathname == "/article"){
+  document.getElementById('homepage').classList.remove('active');
+  document.getElementById('artclelist').classList.add('active');
+}if(document.location.pathname == "/"){
+  document.getElementById('artclelist').classList.remove('active');
+  document.getElementById('homepage').classList.add('active');
+} 
+</script>

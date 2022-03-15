@@ -1,0 +1,10 @@
+@media(max-width:767px){
+  .layout-mdc-item {
+  	width: 100%;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  .layout-mdc-grid{
+    margin: 0;
+  }
+}
